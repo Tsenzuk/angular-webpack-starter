@@ -4,7 +4,6 @@ var CleanPlugin       = require('clean-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
-  context: __dirname + '/src',
   entry: {
     app: ['webpack/hot/dev-server', './app/app.js']
   },
@@ -16,7 +15,8 @@ module.exports = {
     new CleanPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Angular - CRUD',
-      template: './src/index.html',
+      description: 'Angular CRUD boilerplate',
+      template: './public/index.html',
       inject: 'body'
     })
   ],
