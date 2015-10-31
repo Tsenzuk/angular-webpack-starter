@@ -21,6 +21,7 @@ module.exports = {
       title: 'Angular - CRUD',
       description: 'Angular CRUD boilerplate',
       template: './public/index.html',
+      favicon: './public/favicon.ico',
       inject: 'body'
     })
   ],
