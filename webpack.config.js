@@ -23,6 +23,10 @@ module.exports = {
       template: './public/index.html',
       favicon: './public/favicon.ico',
       inject: 'body'
+    }),
+    new webpack.ProvidePlugin({
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
     })
   ],
   module: {
