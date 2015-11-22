@@ -34,7 +34,6 @@ module.exports = {
       { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'raw' },
 
-      { test: /\.styl$/, loader: ExtractTextPlugin.extract('style', 'css!stylus?sourceMap') },
       { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap') },
       { test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css!less?sourceMap') },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css') },
