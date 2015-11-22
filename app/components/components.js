@@ -1,10 +1,10 @@
 import angular from 'angular';
 import Home from './home/home';
-import About from './about/about';
+import SignUp from './sign-up/sign-up';
 
 let componentModule = angular.module('app.components', [
   Home.name,
-  About.name
+  SignUp.name
 ]);
 
 export default componentModule;
