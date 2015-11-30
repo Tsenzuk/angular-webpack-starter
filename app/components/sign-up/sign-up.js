@@ -1,8 +1,10 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngMessages from 'angular-messages';
 import signUpComponent from './sign-up.component';
 
 let signUpModule = angular.module('sign-up', [
+  'ngMessages',
   uiRouter
 ])
 
