@@ -7,6 +7,8 @@ let signUpModule = angular.module('sign-up', [
 ])
 
 .config(($stateProvider) => {
+
+
   $stateProvider
     .state('sign-up', {
       url: '/sign-up',
@@ -14,6 +16,6 @@ let signUpModule = angular.module('sign-up', [
     });
 })
 
-.directive('sign-up', signUpComponent);
+.directive('signUp', signUpComponent);
 
 export default signUpModule;
