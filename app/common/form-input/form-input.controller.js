@@ -1,6 +1,16 @@
+import angular from 'angular'
+
 class formInputController {
-  constructor() {
-    this.name = 'form-input';
+  constructor($scope, $element, $attrs, $transclude) {
+    //this.name = 'form-input';
+    $transclude(function(clone, scope) {
+      let str ="";
+      $scope.vm.defaultInputShow = true;
+      clone.each(function(i,e){str = str + (e.outerHTML||"")});
+      if(!!(str.length)){
+        $scope.vm.defaultInputShow = false;
+      }
+    });
   }
 }
 

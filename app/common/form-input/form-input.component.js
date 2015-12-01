@@ -6,7 +6,8 @@ let forInputComponent = function () {
     restrict: 'E',
     transclude: true,
     scope: {
-      label:'=',
+      label:'@',
+      required:"@",
       input:'=',
       messages:'='
     },
