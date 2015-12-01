@@ -1,12 +1,12 @@
 import angular from 'angular';
 import Navbar from './navbar/navbar';
-import forInput from './forInput/forInput';
+import formInput from './form-input/form-input';
 import User from './user/user';
 import Auth from './auth/auth';
 
 let commonModule = angular.module('app.common', [
   Navbar.name,
-  forInput.name,
+  formInput.name,
   User.name,
   Auth.name
 ]);

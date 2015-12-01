@@ -1,12 +1,11 @@
-import template from './forInput.html';
-import controller from './forInput.controller';
+import template from './form-input.html';
+import controller from './form-input.controller';
 
 let forInputComponent = function () {
   return {
     restrict: 'E',
     transclude: true,
     scope: {
-      /*model:'=model',*/
       label:'=',
       input:'=',
       messages:'='
