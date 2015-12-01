@@ -1,41 +1,41 @@
 <form novalidate name="signUpForm">
-  <div class="form-group">
-    <label for="sign-up-email">Email address</label>
+  <div class="form-group" ng-class="{'has-error':signUpForm.signUpEmail.$invalid&&signUpForm.signUpEmail.$touched}">
+    <label class="control-label" for="sign-up-email">Email address</label>
     <input type="email" class="form-control" id="sign-up-email" name="signUpEmail" ng-model="name" placeholder="your@email" required />
     <div ng-show="signUpForm.$submitted || signUpForm.signUpEmail.$touched" ng-messages="signUpForm.signUpEmail.$error" role="alert">
-      <div ng-message="required">Email is required</div>
-      <div ng-message="email">Provide valid email</div>
+      <div ng-message="required" class="help-block"><i class="glyphicon glyphicon-alert"></i> Email is required</div>
+      <div ng-message="email" class="help-block"><i class="glyphicon glyphicon-alert"></i> Provide valid email</div>
     </div>
   </div>
-  <div class="form-group">
-    <label for="sign-up-login">Login</label>
+  <div class="form-group" ng-class="{'has-error':signUpForm.signUpLogin.$invalid&&signUpForm.signUpLogin.$touched}">
+    <label class="control-label" for="sign-up-login">Login</label>
     <input type="text" class="form-control" id="sign-up-login" name="signUpLogin" ng-model="login" placeholder="login" required />
-    <div ng-show="signUpForm.$submitted || signUpForm.signUpLogin.$touched" ng-messages="signUpForm.signUpLogin.$error" role="alert">
-      <div ng-message="required">Login is required</div>
-      <div ng-message="unique">This login is used, please choose another</div>
+    <div ng-show="signUpForm.$submitted || signUpForm.signUpLogin.$touched" ng-messages="signUpForm.signUpLogin.$error"role="alert">
+      <div ng-message="required" class="help-block"><i class="glyphicon glyphicon-alert"></i> Login is required</div>
+      <div ng-message="unique" class="help-block"><i class="glyphicon glyphicon-alert"></i> This login is used, please choose another</div>
     </div>
   </div>
   <div class="form-group">
-    <label for="sign-up-name">Your name</label>
+    <label class="control-label" for="sign-up-name">Your name</label>
     <input type="text" class="form-control" id="sign-up-name" placeholder="My Name" />
   </div>
-  <div class="form-group">
-    <label for="sign-up-password1">Password</label>
+  <div class="form-group" ng-class="{'has-error':signUpForm.signUpPassword1.$invalid&&signUpForm.signUpPassword1.$touched}">
+    <label class="control-label" for="sign-up-password1">Password</label>
     <input type="password" class="form-control" id="sign-up-password1" name="signUpPassword1" ng-model="password" placeholder="*******" required />
     <div ng-show="signUpForm.$submitted || signUpForm.signUpPassword1.$touched" ng-messages="signUpForm.signUpPassword1.$error" role="alert">
-      <div ng-message="required">Password is required</div>
+      <div ng-message="required" class="help-block"><i class="glyphicon glyphicon-alert"></i> Password is required</div>
     </div>
   </div>
-  <div class="form-group" ng-show="signUpForm.$submitted || signUpForm.signUpPassword1.$touched">
-    <label for="sign-up-password2">Confirm password</label>
-    <input type="password" class="form-control" id="sign-up-password2" name="signUpPassword2" ng-model="passwordCheck" placeholder="*******" required />
+  <div class="form-group" ng-show="signUpForm.$submitted || signUpForm.signUpPassword1.$touched" ng-class="{'has-error':signUpForm.signUpPassword2.$invalid&&signUpForm.signUpPassword2.$touched}">
+    <label class="control-label" for="sign-up-password2">Confirm password</label>
+    <input type="password" class="form-control" id="sign-up-password2" name="signUpPassword2" ng-model="passwordCheck" placeholder="*******" required match="password" />
     <div ng-show="signUpForm.$submitted || signUpForm.signUpPassword2.$touched" ng-messages="signUpForm.signUpPassword2.$error" role="alert">
-      <div ng-message="required">Password confirmation is required</div>
-      <div ng-message="unique">This login is used, please choose another</div>
+      <div ng-message="required" class="help-block"><i class="glyphicon glyphicon-alert"></i> Password confirmation is required</div>
+      <div ng-message="match" class="help-block"><i class="glyphicon glyphicon-alert"></i> Passwords does not match</div>
     </div>
   </div>
   <div class="checkbox">
-    <label>
+    <label class="control-label">
       <input type="checkbox" id="confirm"> I agree with something
     </label>
   </div>
