@@ -7,8 +7,8 @@ let forInputComponent = function () {
     transclude: true,
     scope: {
       label:'@',
-      required:"@",
-      input:'=',
+      placeholder:'@',
+      value:'=',
       messages:'='
     },
     template,

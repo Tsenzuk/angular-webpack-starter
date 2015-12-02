@@ -6,6 +6,6 @@ let forInputModule = angular.module('form-input', [
   uiRouter
 ])
 
-.directive('forInput', formInputComponent);
+.directive('formInput', formInputComponent);
 
 export default forInputModule;
