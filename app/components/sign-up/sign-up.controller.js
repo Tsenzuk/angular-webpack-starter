@@ -1,6 +1,6 @@
 class SignUpController {
   constructor() {
-    this.name = 'about';
+    this.name = 'signUpPage';
   }
 }
 

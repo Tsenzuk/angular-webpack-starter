@@ -1,25 +1,19 @@
-<form novalidate name="signUpForm">
-  <for-input messages="{required:'Email is required', email:'Provide valid email'}" label="Email address" input="signUpForm.signUpEmail" required>
-    <input type="email" class="form-control" id="signUpEmail" name="signUpEmail" ng-model="name" placeholder="your@email" required />
-  </for-input>
-  <for-input messages="{required:'Login is required', unique:'This login is used, please choose another'}" label="Login" input="signUpForm.signUpLogin">
-    <input type="text" class="form-control" id="signUpLogin" name="signUpLogin" ng-model="login" placeholder="login" required />
-  </for-input>
-  <for-input label="Your name" input="signUpForm.signUpName" required="true">
-
-  </for-input>
-  <for-input messages="{required:'Password is required'}" label="Password" input="signUpForm.signUpPassword1">
-    <input type="password" class="form-control" id="signUpPassword1" name="signUpPassword1" ng-model="password" placeholder="Enter password" required="true" />
-  </for-input>
-  <for-input messages="{required:'Password is required', match:'Passwords does not match'}" label="Confirm password" input="signUpForm.signUpPassword2" ng-show="signUpForm.signUpPassword1.$dirty">
-    <input type="password" class="form-control" id="signUpPassword2" name="signUpPassword2" ng-model="passwordCheck" placeholder="Same password again" required />
-  </for-input>
+<form novalidate name="{{vm.name}}">
+  <form-input messages="{required:'Email is required', email:'Provide valid email'}" label="Email address" required>
+    <input type="email" class="form-control" name="blah" id="blah" ng-model="name" placeholder="your@email" required />
+  </form-input>
+  <form-input messages="{required:'Login is required', unique:'This login is used, please choose another'}" label="Login" value="login" placeholder="login"></form-input>
+  <form-input label="Your name" placeholder="My Name" value="name"></form-input>
+  <form-input messages="{required:'Password is required'}" label="Password">
+    <input type="password" class="form-control" name="signUpPassword1" ng-model="password" placeholder="Enter password" required />
+  </form-input>
+  <form-input messages="{required:'Password is required', match:'Passwords does not match'}" label="Confirm password" ng-show="this[vm.name].signUpPassword1.$dirty" form="signUpForm">
+    <input type="password" class="form-control" ng-model="passwordCheck" placeholder="Same password again" required />
+  </form-input>
   <div class="checkbox">
     <label class="control-label">
       <input type="checkbox" id="confirm"> I agree with something
     </label>
   </div>
-  <button type="submit" class="btn btn-primary" ng-disabled="signUpForm.$invalid">Submit</button>
+  <button type="submit" class="btn btn-primary" ng-disabled="this[vm.name].$invalid">Submit</button>
 </form>
-
-<input type="text" class="form-control" id="signUpName" name="signUpName" ng-model="name" placeholder="My Name" />
