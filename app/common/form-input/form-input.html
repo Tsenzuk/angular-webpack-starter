@@ -1,7 +1,7 @@
-<div class="form-group" ng-class="{'has-error': form[name].$invalid && form[name].$touched}">
+<div class="form-group" ng-class="{'has-error': input.$invalid && input.$touched}">
   <label class="control-label" for="{{name}}" ng-if="!!label">{{label}}</label>
   <ng-transclude></ng-transclude>
-  <div ng-messages="form[name].$error" ng-show="form[name].$touched" role="alert">
+  <div ng-messages="input.$error" ng-show="input.$touched" role="alert">
     <div ng-repeat="(messageKey, message) in messages" ng-message="{{messageKey}}" class="help-block">
       {{message}}
     </div>

@@ -18,15 +18,10 @@ let forInputComponent = function ($compile) {
     template,
     require: '^form',
     link: function (scope, element, attr, form, transclude) {
-      scope.form = form;
       scope.name = _randomName();
 
-      let transcluded = false;
-
       transclude((clone) => {
-        transcluded = !!clone.length;
-
-        if (transcluded) {
+        if (!!clone.length) {
           scope.name = clone.filter('input').attr('name');
           if (clone.filter('input').length && !scope.name) {
             throw new Error("Input provided for form-input should contain name attribute")
@@ -44,8 +39,10 @@ let forInputComponent = function ($compile) {
           input.attr(attr, attr);
         });
         element.find('ng-transclude').replaceWith(input);
+
         $compile(input)(scope);
       });
+      scope.input = form[scope.name];
     }
   };
 };
