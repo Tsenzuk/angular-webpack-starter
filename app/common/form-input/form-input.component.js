@@ -1,7 +1,10 @@
 import template from './form-input.html';
-import controller from './form-input.controller';
 
-let forInputComponent = function () {
+function _randomName() {
+  return Math.random().toString(36).substring(7);
+}
+
+let forInputComponent = function ($compile) {
   return {
     restrict: 'E',
     transclude: true,
@@ -13,12 +16,37 @@ let forInputComponent = function () {
       messages: '='
     },
     template,
-    controller,
-    controllerAs: 'vm',
-    bindToController: true,
     require: '^form',
-    link: function($scope, $element, $attr, $form){
-      $scope.vm.form = $form;
+    link: function (scope, element, attr, form, transclude) {
+      scope.form = form;
+      console.log(scope)
+
+      let transcluded = false;
+      scope.name = _randomName();
+
+      transclude((clone) => {
+        transcluded = !!clone.length;
+
+        if (transcluded) {
+          scope.name = clone.filter('input').attr('name');
+          if (clone.filter('input').length && !scope.name) {
+            throw new Error("Input provided for form-input should contain name attribute")
+          }
+          return;
+        }
+
+        let input = angular.element("<input />").addClass("form-control").attr({
+          name: scope.name,
+          id: scope.name,
+          placeholder: scope.placeholder,
+          'ng-model': 'value'
+        });
+        Object.keys(scope.messages || {}).forEach((attr) => {
+          input.attr(attr, attr);
+        });
+        element.find('ng-transclude').replaceWith(input);
+        $compile(input)(scope);
+      });
     }
   };
 };
