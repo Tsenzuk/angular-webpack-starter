@@ -1,14 +1,14 @@
 <form novalidate name="{{vm.name}}">
   <form-input messages="{required:'Email is required', email:'Provide valid email'}" label="Email address" required>
-    <input type="email" class="form-control" name="blah" id="blah" ng-model="name" placeholder="your@email" required />
+    <input type="email" class="form-control" name="mail" ng-model="mail" placeholder="your@email" required />
   </form-input>
   <form-input messages="{required:'Login is required', unique:'This login is used, please choose another'}" label="Login" value="login" placeholder="login"></form-input>
   <form-input label="Your name" placeholder="My Name" value="name"></form-input>
-  <form-input messages="{required:'Password is required'}" label="Password">
+  <form-input messages="{required:'Password is required'}" label="Password" value="password">
     <input type="password" class="form-control" name="signUpPassword1" ng-model="password" placeholder="Enter password" required />
   </form-input>
   <form-input messages="{required:'Password is required', match:'Passwords does not match'}" label="Confirm password" ng-show="this[vm.name].signUpPassword1.$dirty" form="signUpForm">
-    <input type="password" class="form-control" ng-model="passwordCheck" placeholder="Same password again" required />
+    <input type="password" class="form-control" name="signUpPassword2" ng-model="passwordCheck" placeholder="Same password again" required />
   </form-input>
   <div class="checkbox">
     <label class="control-label">
