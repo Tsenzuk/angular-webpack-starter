@@ -1,7 +1,8 @@
 <div class="form-group" ng-class="{'has-error':vm.form[vm.name].$invalid&&vm.form[vm.name].$touched}">
   <label class="control-label" ng-if="!!vm.label">{{vm.label}}</label>
-  <input type="text" class="form-control" placeholder="{{vm.placeholder}}" name="{{vm.name}}" ng-model="vm.value" ng-if="!vm.transcluded" ng-attr-required="!!vm.messages.required" />
-  <span ng-transclude></span>
+  <!--input type="text" class="form-control" placeholder="{{vm.placeholder}}" name="{{vm.name}}" ng-model="vm.value" default/-->
+  <ng-transclude></ng-transclude>
+  <span class="input"></span>
   <div ng-messages="vm.form[vm.name].$error" ng-show="vm.form[vm.name].$touched" role="alert">
     <div ng-repeat="(messageKey, message) in vm.messages" ng-message="{{messageKey}}" class="help-block">
       {{message}}
