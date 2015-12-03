@@ -19,10 +19,9 @@ let forInputComponent = function ($compile) {
     require: '^form',
     link: function (scope, element, attr, form, transclude) {
       scope.form = form;
-      console.log(scope)
+      scope.name = _randomName();
 
       let transcluded = false;
-      scope.name = _randomName();
 
       transclude((clone) => {
         transcluded = !!clone.length;
