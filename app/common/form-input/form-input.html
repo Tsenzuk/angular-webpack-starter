@@ -1,6 +1,5 @@
-<div class="form-group" ng-class="{'has-error':vm.form[vm.name].$invalid&&vm.form[vm.name].$touched}">
-  <label class="control-label" ng-if="!!vm.label">{{vm.label}}</label>
-  <!--input type="text" class="form-control" placeholder="{{vm.placeholder}}" name="{{vm.name}}" ng-model="vm.value" default/-->
+<div class="form-group" ng-class="{'has-error': vm.form[vm.name].$invalid && vm.form[vm.name].$touched}">
+  <label class="control-label" for="{{vm.name}}" ng-if="!!vm.label">{{vm.label}}</label>
   <ng-transclude></ng-transclude>
   <span class="input"></span>
   <div ng-messages="vm.form[vm.name].$error" ng-show="vm.form[vm.name].$touched" role="alert">

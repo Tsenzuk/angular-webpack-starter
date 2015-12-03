@@ -5,16 +5,21 @@ let forInputComponent = function () {
   return {
     restrict: 'E',
     transclude: true,
+    replace: true,
     scope: {
-      label:'@',
-      placeholder:'@',
-      value:'=',
-      messages:'='
+      label: '@',
+      placeholder: '@',
+      value: '=',
+      messages: '='
     },
     template,
     controller,
     controllerAs: 'vm',
-    bindToController: true
+    bindToController: true,
+    require: '^form',
+    link: function($scope, $element, $attr, $form){
+      $scope.vm.form = $form;
+    }
   };
 };
 
