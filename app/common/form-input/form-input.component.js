@@ -11,8 +11,7 @@ let forInputComponent = function ($compile) {
     replace: true,
     scope: {
       label: '@',
-      placeholder: '@',
-      value: '=',
+      model: '=',
       messages: '='
     },
     template,
@@ -29,18 +28,22 @@ let forInputComponent = function ($compile) {
           return;
         }
 
-        let input = angular.element("<input />").addClass("form-control").attr({
+        let newInput = angular.element("<input />").addClass("form-control").attr({
           name: scope.name,
           id: scope.name,
           placeholder: scope.placeholder,
-          'ng-model': 'value'
+          'ng-model': 'model'
         });
-        Object.keys(scope.messages || {}).forEach((attr) => {
-          input.attr(attr, attr);
-        });
-        element.find('ng-transclude').replaceWith(input);
 
-        $compile(input)(scope);
+        angular.forEach(attr.$attr,function(value, key){
+          if(!scope.hasOwnProperty(key) && !(key.indexOf("ng-")===0)){
+            newInput.attr(key, value);
+          }
+        });
+
+        element.find('ng-transclude').replaceWith(newInput);
+
+        $compile(newInput)(scope);
       });
       scope.input = form[scope.name];
     }
