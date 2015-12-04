@@ -8,9 +8,9 @@ import 'bootstrap';
 import 'bootstrap/less/bootstrap.less';
 
 angular.module('app', [
-  uiRouter,
-  Common.name,
-  Components.name
-])
+    uiRouter,
+    Common.name,
+    Components.name
+  ])
 
-.directive('app', AppComponent);
+  .directive('app', AppComponent);
