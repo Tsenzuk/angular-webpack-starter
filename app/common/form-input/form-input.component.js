@@ -4,7 +4,7 @@ function _randomName() {
   return Math.random().toString(36).substring(7);
 }
 
-let forInputComponent = function ($compile) {
+let formInputComponent = function ($compile) {
   return {
     restrict: 'E',
     transclude: true,
@@ -50,4 +50,4 @@ let forInputComponent = function ($compile) {
   };
 };
 
-export default forInputComponent;
+export default formInputComponent;
