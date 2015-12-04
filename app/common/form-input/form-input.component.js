@@ -37,7 +37,7 @@ let formInputComponent = function ($compile) {
 
         angular.forEach(attr.$attr,function(value, key){
           if(!scope.hasOwnProperty(key) && !(key.indexOf("ng-")===0)){
-            newInput.attr(key, value);
+            newInput.attr(key, attr[key]);
           }
         });
 
