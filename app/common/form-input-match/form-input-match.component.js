@@ -1,4 +1,4 @@
-let formInputMatchComponent = function ($parse) {
+let formInputMatchComponent = function () {
   return {
     require: '^?form',
     restrict: 'A',
