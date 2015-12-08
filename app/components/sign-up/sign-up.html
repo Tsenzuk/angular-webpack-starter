@@ -1,4 +1,4 @@
-<form form novalidate name="{{vm.name}}">
+<form form novalidate name="{{vm.name}}" ng-submit="vm.submit()">
   <form-input messages="{required:'Email is required', email:'Provide valid email'}" label="Email address" required>
     <input type="email" class="form-control" name="mail" ng-model="mail" placeholder="your@email" required />
   </form-input>
@@ -12,7 +12,7 @@
   </form-input>
   <div class="checkbox">
     <label class="control-label">
-      <input type="checkbox" id="confirm"> I agree with something
+      <input type="checkbox" id="confirm" ng-model="agreement" required> I agree with something
     </label>
   </div>
   <button type="submit" class="btn btn-primary" ng-disabled="this[vm.name].$invalid">Submit</button>
