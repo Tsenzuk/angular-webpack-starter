@@ -1,14 +1,21 @@
 <form form novalidate name="{{vm.name}}" ng-submit="vm.submit()">
-  <form-input messages="{required:'Email is required', email:'Provide valid email'}" label="Email address" required>
-    <input type="email" class="form-control" name="mail" ng-model="mail" placeholder="your@email" required />
+  <div ng-if="this[vm.name].$submitted" class="after-submit" messages="">
+  </div>
+  <form-input messages="{required:'Email is required', email:'Provide valid email'}" label="Email address"
+              model="user.email">
+    <input type="email" class="form-control" name="mail" placeholder="your@email" required/>
   </form-input>
-  <form-input messages="{required:'Login is required', unique:'This login is used, please choose another', minlength:'Login should be more than 3 symbols'}" label="Login" model="login" placeholder="login" required minlength="3"></form-input>
-  <form-input label="Your name" placeholder="My Name" model="name"></form-input>
-  <form-input messages="{required:'Password is required'}" label="Password" model="password">
-    <input type="password" class="form-control" name="signUpPassword1" ng-model="password" placeholder="Enter password" required />
+  <form-input model="user.login"
+              messages="{required:'Login is required', unique:'This login is used, please choose another', minlength:'Login should be more than 3 symbols'}"
+              label="Login" placeholder="login" required minlength="3" form-input-unique></form-input>
+  <form-input label="Your name" placeholder="My Name" model="user.name"></form-input>
+  <form-input messages="{required:'Password is required'}" label="Password" model="user.password">
+    <input type="password" class="form-control" name="password" placeholder="Enter password" required/>
   </form-input>
-  <form-input messages="{required:'Password is required', formInputMatch:'Passwords does not match'}" label="Confirm password" ng-show="this[vm.name].signUpPassword1.$dirty">
-    <input type="password" class="form-control" name="signUpPassword2" ng-model="passwordCheck" placeholder="Same password again" required form-input-match="signUpPassword1" />
+  <form-input messages="{required:'Password is required', formInputMatch:'Passwords does not match'}"
+              label="Confirm password" ng-show="this[vm.name].password.$dirty" model="passwordCheck">
+    <input type="password" class="form-control" name="passwordCheck" placeholder="Same password again" required
+           form-input-match="password"/>
   </form-input>
   <div class="checkbox">
     <label class="control-label">
