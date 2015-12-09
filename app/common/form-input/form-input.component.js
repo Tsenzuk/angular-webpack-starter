@@ -11,33 +11,50 @@ let formInputComponent = function ($compile) {
     replace: true,
     scope: {
       label: '@',
+      modelName: '@model',
       model: '=',
       messages: '='
     },
     template,
     require: '^form',
     link: function (scope, element, attr, form, transclude) {
-      scope.name = _randomName();
+      scope.name = scope.modelName;
+      let id = _randomName();
 
       transclude((clone) => {
         if (!!clone.length) {
-          scope.name = clone.filter('input').attr('name');
-          if (clone.filter('input').length && !scope.name) {
-            throw new Error("Input provided for form-input should contain name attribute")
+          let inputs = angular.element(element).find('ng-transclude').find('input');
+          if (inputs.length && !scope.name) {
+            throw new Error('Input provided for form-input should contain "name" attribute.');
           }
+          if (!scope.modelName) {
+            throw new Error('Form input should contain "model" attribute contains ngModel name');
+          }
+
+          scope.name = inputs.attr('name');
+          id = scope.name + id;
+
+          if (!inputs.attr('id')) {
+            inputs.attr('id', id)
+          }
+          scope.id = inputs.attr('id');
+
+          $compile(inputs)(scope);
           return;
         }
 
+        scope.name = scope.name.split('.').pop(); //to get only object field name
+        scope.id = scope.name + id;
         let newInput = angular.element("<input />").addClass("form-control").attr({
           name: scope.name,
-          id: scope.name,
+          id: scope.id,
           placeholder: scope.placeholder,
           'ng-model': 'model'
         });
 
-        angular.forEach(attr.$attr,function(value, key){
-          if(!scope.hasOwnProperty(key) && !(key.indexOf("ng-")===0)){
-            newInput.attr(key, attr[key]);
+        angular.forEach(attr.$attr, function (value, key) {
+          if (!scope.hasOwnProperty(key) && !(key.indexOf("ng-") === 0)) {
+            newInput.attr(value, attr[key]);
           }
         });
 
