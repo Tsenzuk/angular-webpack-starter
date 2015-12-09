@@ -14,3 +14,9 @@ angular.module('app', [
   ])
 
   .directive('app', AppComponent);
+
+import Mock from './app.mock';
+angular
+  .module('app')
+  .config(Mock.config)
+  .run(Mock.run);
