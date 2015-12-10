@@ -1,8 +1,8 @@
 import template from './<%= name %>.html';
 import controller from './<%= name %>.controller';
-import './<%= name %>.styl';
+import './<%= name %>.scss';
 
-let <%= name %>Component = function () {
+let <%= upCaseName %>Component = function () {
   return {
     restrict: 'E',
     scope: {},
@@ -13,4 +13,4 @@ let <%= name %>Component = function () {
   };
 };
 
-export default <%= name %>Component;
+export default <%= upCaseName %>Component;

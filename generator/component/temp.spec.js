@@ -35,19 +35,19 @@ describe('<%= upCaseName %>', () => {
   });
 
   describe('Component', () => {
-      // component/directive specs
-      let component = <%= upCaseName %>Component();
+    // component/directive specs
+    let component = <%= upCaseName %>Component();
 
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(<%= upCaseName %>Template);
-      });
+    it('includes the intended template',() => {
+      expect(component.template).to.equal(<%= upCaseName %>Template);
+    });
 
-      it('uses `controllerAs` syntax', () => {
-        expect(component).to.have.property('controllerAs');
-      });
+    it('uses `controllerAs` syntax', () => {
+      expect(component).to.have.property('controllerAs');
+    });
 
-      it('invokes the right controller', () => {
-        expect(component.controller).to.equal(<%= upCaseName %>Controller);
-      });
+    it('invokes the right controller', () => {
+      expect(component.controller).to.equal(<%= upCaseName %>Controller);
+    });
   });
 });

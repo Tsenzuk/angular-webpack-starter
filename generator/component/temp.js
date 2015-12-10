@@ -1,11 +1,11 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import <%= name %>Component from './<%= name %>.component';
+import <%= upCaseName %>Component from './<%= name %>.component';
 
-let <%= name %>Module = angular.module('<%= name %>', [
+let <%= upCaseName %>Module = angular.module('<%= name %>', [
   uiRouter
 ])
 
-.directive('<%= name %>', <%= name %>Component);
+.directive('<%= name %>', <%= upCaseName %>Component);
 
-export default <%= name %>Module;
+export default <%= upCaseName %>Module;
