@@ -11,56 +11,46 @@ let formInputComponent = function ($compile) {
     replace: true,
     scope: {
       label: '@',
-      modelName: '@model',
+      name: '@model',
       model: '=',
       messages: '='
     },
     template,
     require: '^form',
     link: function (scope, element, attr, form, transclude) {
-      scope.name = scope.modelName;
+      if (!scope.name) {
+        throw new Error('Form input should contain "model" attribute contains ngModel name');
+      }
+
       let id = _randomName();
 
       transclude((clone) => {
+        let input;
         if (!!clone.length) {
-          let inputs = angular.element(element).find('ng-transclude').find('input');
-          if (inputs.length && !scope.name) {
-            throw new Error('Input provided for form-input should contain "name" attribute.');
-          }
-          if (!scope.modelName) {
-            throw new Error('Form input should contain "model" attribute contains ngModel name');
-          }
+          input = angular.element(element).find('ng-transclude').find('input').first();
+          scope.name = input.attr('name') || scope.name;
+          scope.id = input.attr('id') || id;
+        } else {
+          scope.name = scope.name.split('.').pop(); //to get only object field name
+          input = angular.element("<input />").addClass("form-control").attr({
+            'ng-model': 'model'
+          });
 
-          scope.name = inputs.attr('name');
-          id = scope.name + id;
+          angular.forEach(attr.$attr, function (value, key) {
+            if (!scope.hasOwnProperty(key) && !(key.indexOf("ng-") === 0)) {
+              input.attr(value, attr[key]);
+            }
+          });
 
-          if (!inputs.attr('id')) {
-            inputs.attr('id', id)
-          }
-          scope.id = inputs.attr('id');
-
-          $compile(inputs)(scope);
-          return;
+          element.find('ng-transclude').replaceWith(input);
         }
 
-        scope.name = scope.name.split('.').pop(); //to get only object field name
-        scope.id = scope.name + id;
-        let newInput = angular.element("<input />").addClass("form-control").attr({
-          name: scope.name,
-          id: scope.id,
-          placeholder: scope.placeholder,
-          'ng-model': 'model'
-        });
+        id = scope.name + id;
+        scope.id = scope.id || id;
+        input.attr('id', scope.id);
+        input.attr('name', scope.name);
 
-        angular.forEach(attr.$attr, function (value, key) {
-          if (!scope.hasOwnProperty(key) && !(key.indexOf("ng-") === 0)) {
-            newInput.attr(value, attr[key]);
-          }
-        });
-
-        element.find('ng-transclude').replaceWith(newInput);
-
-        $compile(newInput)(scope);
+        $compile(input)(scope);
       });
       scope.input = form[scope.name];
     }
