@@ -29,12 +29,10 @@ let formInputComponent = function ($compile) {
         if (!!clone.length) {
           input = angular.element(element).find('ng-transclude').find('input').first();
           scope.name = input.attr('name') || scope.name;
-          scope.id = input.attr('id') || id;
+          scope.id = input.attr('id');
         } else {
           scope.name = scope.name.split('.').pop(); //to get only object field name
-          input = angular.element("<input />").addClass("form-control").attr({
-            'ng-model': 'model'
-          });
+          input = angular.element("<input />").addClass("form-control");
 
           angular.forEach(attr.$attr, function (value, key) {
             if (!scope.hasOwnProperty(key) && !(key.indexOf("ng-") === 0)) {
@@ -49,6 +47,7 @@ let formInputComponent = function ($compile) {
         scope.id = scope.id || id;
         input.attr('id', scope.id);
         input.attr('name', scope.name);
+        input.attr('ng-model', 'model');
 
         $compile(input)(scope);
       });
