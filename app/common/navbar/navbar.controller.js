@@ -1,4 +1,3 @@
-
 class NavbarController {
   constructor(Auth) {
     this.Auth = Auth;

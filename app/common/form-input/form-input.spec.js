@@ -23,11 +23,11 @@ describe('Hero', () => {
   });
 
   describe('Component', () => {
-      // component/directive specs
-      let component = formInputComponent();
+    // component/directive specs
+    let component = formInputComponent();
 
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(formInputTemplate);
-      });
+    it('includes the intended template', () => {
+      expect(component.template).to.equal(formInputTemplate);
+    });
   });
 });

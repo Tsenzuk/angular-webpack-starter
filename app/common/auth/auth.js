@@ -3,6 +3,6 @@ import AuthFactory from './auth.factory';
 
 let authModule = angular.module('auth', [])
 
-.factory('Auth', AuthFactory);
+  .factory('Auth', AuthFactory);
 
 export default authModule;

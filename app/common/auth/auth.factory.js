@@ -1,5 +1,4 @@
-
-let AuthFactory = function() {
+let AuthFactory = function () {
   let _user;
 
   return {

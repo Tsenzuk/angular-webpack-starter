@@ -32,14 +32,14 @@ class SignUpController {
           analyzeMessages('danger', $scope, element, data.errors)
           return;
         }
-        analyzeMessages('success', $scope, element, {user: {'created':''}});
+        analyzeMessages('success', $scope, element, {user: {'created': ''}});
         $state.go('home');
       }).error(function (data, code) {
         if (data.errors) {
           analyzeMessages('danger', $scope, element, data.errors)
           return
         }
-        analyzeMessages('danger', $scope, element, {'unexpected error':{[code]:''}})
+        analyzeMessages('danger', $scope, element, {'unexpected error': {[code]: ''}})
       });
     }
   }

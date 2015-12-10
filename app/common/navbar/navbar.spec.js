@@ -35,19 +35,19 @@ describe('Navbar', () => {
   });
 
   describe('Component', () => {
-      // component/directive specs
-      let component = NavbarComponent();
+    // component/directive specs
+    let component = NavbarComponent();
 
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(NavbarTemplate);
-      });
+    it('includes the intended template', () => {
+      expect(component.template).to.equal(NavbarTemplate);
+    });
 
-      it('uses `controllerAs` syntax', () => {
-        expect(component).to.have.property('controllerAs');
-      });
+    it('uses `controllerAs` syntax', () => {
+      expect(component).to.have.property('controllerAs');
+    });
 
-      it('invokes the right controller', () => {
-        expect(component.controller).to.equal(NavbarController);
-      });
+    it('invokes the right controller', () => {
+      expect(component.controller).to.equal(NavbarController);
+    });
   });
 });

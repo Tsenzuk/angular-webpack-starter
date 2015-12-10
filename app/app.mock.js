@@ -36,7 +36,7 @@ export default {
 
       users[body.login] = body;
 
-      if(errors) {
+      if (errors) {
         return [400, {errors}]
       }
       return [200, {message: 'user created'}]
