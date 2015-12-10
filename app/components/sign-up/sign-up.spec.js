@@ -1,16 +1,16 @@
-import AboutModule from './about'
-import AboutController from './about.controller';
-import AboutComponent from './about.component';
-import AboutTemplate from './about.html';
+import SignUpModule from './sign-up'
+import SignUpController from './sign-up.controller';
+import SignUpComponent from './sign-up.component';
+import SignUpTemplate from './sign-up.html';
 
 describe('About', () => {
   let $rootScope, makeController;
 
-  beforeEach(window.module(AboutModule.name));
+  beforeEach(window.module(SignUpModule.name));
   beforeEach(inject((_$rootScope_) => {
     $rootScope = _$rootScope_;
     makeController = () => {
-      return new AboutController();
+      return new SignUpController();
     };
   }));
 
@@ -30,24 +30,24 @@ describe('About', () => {
     // template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
     it('has name in template [REMOVE]', () => {
-      expect(AboutTemplate).to.match(/{{\s?vm\.name\s?}}/g);
+      expect(SignUpTemplate).to.match(/{{\s?vm\.name\s?}}/g);
     });
   });
 
   describe('Component', () => {
-      // component/directive specs
-      let component = AboutComponent();
+    // component/directive specs
+    let component = SignUpComponent();
 
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(AboutTemplate);
-      });
+    it('includes the intended template', () => {
+      expect(component.template).to.equal(SignUpTemplate);
+    });
 
-      it('uses `controllerAs` syntax', () => {
-        expect(component).to.have.property('controllerAs');
-      });
+    it('uses `controllerAs` syntax', () => {
+      expect(component).to.have.property('controllerAs');
+    });
 
-      it('invokes the right controller', () => {
-        expect(component.controller).to.equal(AboutController);
-      });
+    it('invokes the right controller', () => {
+      expect(component.controller).to.equal(SignUpController);
+    });
   });
 });
