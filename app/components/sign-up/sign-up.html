@@ -1,4 +1,4 @@
-<form form novalidate name="{{vm.name}}" ng-submit="vm.submit()">
+<form novalidate name="{{vm.name}}" ng-submit="vm.submit()">
   <div ng-if="this[vm.name].$submitted" class="after-submit" messages="">
   </div>
   <form-input messages="{required:'Email is required', email:'Provide valid email'}" label="Email address"

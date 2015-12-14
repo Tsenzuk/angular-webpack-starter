@@ -7,17 +7,13 @@ let signUpModule = angular.module('sign-up', [
     'ngMessages',
     uiRouter
   ])
-
   .config(($stateProvider) => {
-
-
     $stateProvider
       .state('sign-up', {
         url: '/sign-up',
         template: '<sign-up></sign-up>'
       });
   })
-
   .directive('signUp', signUpComponent);
 
 export default signUpModule;
