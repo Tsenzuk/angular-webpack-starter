@@ -3,9 +3,10 @@ import uiRouter from 'angular-ui-router';
 import <%= upCaseName %>Component from './<%= name %>.component';
 
 let <%= upCaseName %>Module = angular.module('<%= name %>', [
-  uiRouter
-])
-
-.directive('<%= name %>', <%= upCaseName %>Component);
+    uiRouter
+  ])
+  .directive('<%= upCaseName %>', < %= upCaseName % > Component
+)
+;
 
 export default <%= upCaseName %>Module;
