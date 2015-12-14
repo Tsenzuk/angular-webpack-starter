@@ -12,7 +12,6 @@ angular.module('app', [
     Common.name,
     Components.name
   ])
-
   .directive('app', AppComponent);
 
 import Mock from './app.mock';
