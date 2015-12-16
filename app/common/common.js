@@ -5,6 +5,7 @@ import formInputMatch from './form-input-match/form-input-match';
 import formInputUnique from './form-input-unique/form-input-unique';
 import User from './user/user';
 import Auth from './auth/auth';
+import AuthInterceptor from './auth-interceptor/auth-interceptor';
 
 let commonModule = angular.module('app.common', [
   Navbar.name,
@@ -12,7 +13,8 @@ let commonModule = angular.module('app.common', [
   formInputMatch.name,
   formInputUnique.name,
   User.name,
-  Auth.name
+  Auth.name,
+  AuthInterceptor.name
 ]);
 
 export default commonModule;
