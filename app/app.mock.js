@@ -73,12 +73,18 @@ export default {
       expirationDate.setSeconds(expirationDate.getSeconds() + 60);
       setTimeout(function () {
         delete sessions[sessions.indexOf(sessionId)]
-      }, 1000 * 60);
+      }, 1000 * 5);
 
       return [code, {
         message: 'user authenticated',
         sessionId
       }, {'Set-Cookie': `SessionId=${sessionId}; expires=${expirationDate.toUTCString()}`}]
+    });
+
+    $httpBackend.whenGET('/test-401/').respond(function (method, path, body, headers) {
+      let code = 401;
+      let errors = setError(errors, 'session', 'expired', '');
+      return [code, {errors}]
     });
   }]
 };
