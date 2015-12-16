@@ -15,7 +15,7 @@ let formInputMatchComponent = function () {
         return;
       }
       if (!ctrl[attrs.name]) {
-        console.warn('Form input match should be used only in form directive!');
+        console.warn('Current input should be used in form directive!');
         return;
       }
 
