@@ -8,26 +8,36 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">CRUD</a>
+      <a class="navbar-brand" href="#" translate="BRAND">CRUD</a>
     </div>
 
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="home" translate="HOME-LINK">Home</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li ng-if="!vm.isSignedIn()"><a ui-sref="sign-in">Sign In</a></li>
-        <li ng-if="!vm.isSignedIn()"><a ui-sref="sign-up">Sign Up</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false">
+            Language <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#" translate="BUTTON_LANG_EN" ng-click="vm.changeLang('en')">English</a></li>
+            <li><a href="#" translate="BUTTON_LANG_UA" ng-click="vm.changeLang('ua')">Ukrainian</a></li>
+          </ul>
+        </li>
+        <li ng-if="!vm.isSignedIn()"><a ui-sref="sign-in" translate="SIGN-IN">Sign In</a></li>
+        <li ng-if="!vm.isSignedIn()"><a ui-sref="sign-up" translate="SIGN-UP">Sign Up</a></li>
         <li class="dropdown" ng-if="vm.isSignedIn()">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
              aria-expanded="false">
             {{vm.name()}} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Profile</a></li>
+            <li><a href="#" translate="PROFILE">Profile</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Sign Out</a></li>
+            <li><a href="#" translate="SIGN-OUT">Sign Out</a></li>
           </ul>
         </li>
       </ul>

@@ -6,6 +6,7 @@
   "dependencies": {
     "angular": "^1.4.4",
     "angular-messages": "^1.4.8",
+    "angular-translate": "^2.8.1",
     "angular-ui-router": "^0.2.15",
     "bootstrap": "^3.3.5",
     "jquery": "^2.1.4",
@@ -25,6 +26,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-template": "^3.0.0",
     "html-webpack-plugin": "^1.6.2",
+    "json-loader": "^0.5.4",
     "karma": "^0.13.9",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.0",

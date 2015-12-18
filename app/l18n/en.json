@@ -1,0 +1,12 @@
+{
+  "BRAND": "CRUD",
+  "SIGN-IN": "Sign In",
+  "SIGN-UP": "Sign Up",
+  "HELLO-MESSAGE": "Hey there, {{username}}",
+  "HOME-LINK": "Home",
+  "PROFILE": "Profile",
+  "SIGN-OUT": "Sign Out",
+  "SUBMIT": "Submit",
+  "BUTTON_LANG_EN": "English",
+  "BUTTON_LANG_UA": "Українська"
+}

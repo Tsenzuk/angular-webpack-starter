@@ -7,5 +7,6 @@
   <form-input messages="{required:'Password is required'}" label="Password" model="user.password">
     <input type="password" class="form-control" name="password" placeholder="Enter password" required/>
   </form-input>
-  <button type="submit" class="btn btn-primary" ng-disabled="this[vm.name].$invalid">Sign In</button>
+  <button type="submit" class="btn btn-primary" ng-disabled="this[vm.name].$invalid" translate="SIGN-IN">Sign In
+  </button>
 </form>

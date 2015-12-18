@@ -1,0 +1,12 @@
+{
+  "BRAND": "CRUD",
+  "SIGN-IN": "Авторизуватись",
+  "SIGN-UP": "Зареєструватися",
+  "SIGN-OUT": "Вийти з аккаунта",
+  "HELLO-MESSAGE": "Доброго дня, пане, {{username}}",
+  "HOME-LINK": "Додому",
+  "PROFILE": "Профіль",
+  "SUBMIT": "Відправити",
+  "BUTTON_LANG_EN": "English",
+  "BUTTON_LANG_UA": "Українська"
+}

@@ -10,7 +10,7 @@ module.exports = {
     app: ['./app/app.js']
   },
   output: {
-    path: './dist',
+    path: __dirname + '/dist',
     filename: 'bundle-[hash].js'
   },
   plugins: [
@@ -33,6 +33,7 @@ module.exports = {
     loaders: [
       { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'raw' },
+      {test: /\.json$/, loader: 'json'},
 
       { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap') },
       { test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css!less?sourceMap') },
