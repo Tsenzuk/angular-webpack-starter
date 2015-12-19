@@ -1,0 +1,13 @@
+<h1>{{ vm.name }}</h1>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>login</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="(index, row) in vm.data">
+    <td>{{row.login}}</td>
+  </tr>
+  </tbody>
+</table>
