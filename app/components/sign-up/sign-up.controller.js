@@ -30,12 +30,6 @@ class SignUpController {
 
   submit() {
     var element = angular.element('.after-submit').html('');
-    /*$http({
-     method: 'POST',
-     url: '/sign-up/',
-     data: $scope.user
-     //headers: {'Content-Type': 'application/x-www-form-urlencoded'}  // set the headers so angular passing info as form data (not request payload)
-     })*/
     auth.createUser($scope.user).then(function (data) {
       if (data.errors) {
         analyzeMessages('danger', $scope, element, data.errors);
