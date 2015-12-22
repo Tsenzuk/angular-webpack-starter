@@ -5,8 +5,6 @@ import <%= upCaseName %>Component from './<%= name %>.component';
 let <%= upCaseName %>Module = angular.module('<%= name %>', [
     uiRouter
   ])
-  .directive('
-<%= upCaseName %>',
-<%= upCaseName %> Component);
+  .directive('<%= upCaseName %>',<%= upCaseName %> Component);
 
 export default <%= upCaseName %>Module;
