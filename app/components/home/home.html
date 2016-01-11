@@ -2,6 +2,9 @@
 <div ng-if="vm.user.isSignedIn()" translate="HELLO-MESSAGE" translate-values="{username:vm.getUser().login}">Hello
   {{vm.getUser().login}}
 </div>
+<div>
+  {{vm.getUser()}}
+</div>
 <button class="btn btn-danger" ng-click="vm.check401()">
   <i class="glyphicon glyphicon-alert"></i> check 401 error
 </button>

@@ -5,6 +5,7 @@ import formInputMatch from './form-input-match/form-input-match';
 import formInputUnique from './form-input-unique/form-input-unique';
 import User from './user/user';
 import Auth from './auth/auth';
+import AuthLevels from './auth-levels/auth-levels';
 import AuthInterceptor from './auth-interceptor/auth-interceptor';
 
 let commonModule = angular.module('app.common', [
@@ -14,6 +15,7 @@ let commonModule = angular.module('app.common', [
   formInputUnique.name,
   User.name,
   Auth.name,
+  AuthLevels.name,
   AuthInterceptor.name
 ]);
 

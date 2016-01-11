@@ -1,15 +1,7 @@
-let UserFactory = function () {
-  const user = {};
-
-  let getUser = () => {
-    return user;
-  };
-
-  let isSignedIn = () => {
-    return user.isSignedIn;
-  };
-
-  return {getUser, isSignedIn};
+let UserFactory = function ($resource) {
+  return $resource('/users/:id', {id: '@id'});
 };
+
+UserFactory.$inject = ['$resource'];
 
 export default UserFactory;

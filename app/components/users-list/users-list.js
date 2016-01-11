@@ -11,9 +11,12 @@ let UsersListModule = angular.module('users-list', [
     $stateProvider
       .state('users-list', {
         url: '/users-list',
-        template: '<users-list></users-list>'
+        template: '<users-list></users-list>',
+        signedInRequired: 'user'
       });
+    
   })
   .directive('usersList', UsersListComponent);
 
 export default UsersListModule;
+  

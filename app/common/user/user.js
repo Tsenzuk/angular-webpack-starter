@@ -1,8 +1,9 @@
 import angular from 'angular';
+import ngResource from 'angular-resource';
 import UserFactory from './user.factory';
 
-let userModule = angular.module('user', [])
+let UserModule = angular.module('user', ['ngResource'])
 
   .factory('User', UserFactory);
 
-export default userModule;
+export default UserModule;

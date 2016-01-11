@@ -20,9 +20,9 @@ export default {
   config: ['$provide', function ($provide) {
     $provide.decorator('$httpBackend', angular.mock.e2e.$httpBackendDecorator);
   }],
-  run: ['$httpBackend', function ($httpBackend/*, ServerDataModel*/) {
+  run: ['$httpBackend', function ($httpBackend) {
 
-    let users = {};
+    let users = {'111': {password: '1'}, 'admin':{password: '1', role:'admin'}};
     let sessions = [];
 
     $httpBackend.whenPOST('/sign-up/').respond(function (method, path, body, headers) {
@@ -73,18 +73,31 @@ export default {
       expirationDate.setSeconds(expirationDate.getSeconds() + 60);
       setTimeout(function () {
         delete sessions[sessions.indexOf(sessionId)]
-      }, 1000 * 5);
+      }, 1000 * 60);
+
+      //$cookies.put("SessionId", sessionId, {expires: expirationDate, path:'/'});
+      //$cookies.SessionId =  sessionId;
 
       return [code, {
         message: 'user authenticated',
+        user: users[body.login],
         sessionId
-      }, {'Set-Cookie': `SessionId=${sessionId}; expires=${expirationDate.toUTCString()}`}]
+      //}];
+      }, {'Set-Cookie': `SessionId=${sessionId};path=/;expires=${expirationDate.toUTCString()}`}]
     });
 
     $httpBackend.whenGET('/test-401/').respond(function (method, path, body, headers) {
       let code = 401;
       let errors = setError(errors, 'session', 'expired', '');
       return [code, {errors}]
+    });
+
+    $httpBackend.whenGET('/users',function(headers){
+      console.log();
+      return true
+    }).respond(function (method, path, body, headers) {
+      console.log(arguments) //TODO
+      return [200, users]
     });
   }]
 };
