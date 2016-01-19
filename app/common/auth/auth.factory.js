@@ -30,6 +30,21 @@ let AuthFactory = function ($http) {
       }, function (data) {
         _user = undefined;
         throw data
+      });
+    },
+    
+    unsetUser(){
+      return $http({
+        method: 'DELETE',
+        url: '/sign-in/',
+        data: _user
+        //headers: {'Content-Type': 'application/x-www-form-urlencoded'}  // set the headers so angular passing info as form data (not request payload)
+      }).then(function (ret) {
+        _user = undefined;
+        return ret
+      }, function (data) {
+        _user = undefined;
+        throw data
       })
     },
 

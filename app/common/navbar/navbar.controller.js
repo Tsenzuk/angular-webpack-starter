@@ -19,6 +19,10 @@ class NavbarController {
     lang = lang || 'en';
     $translate.use(lang)
   }
+  
+  logout(){
+    Auth.unsetUser();
+  }
 }
 
 NavbarController.$inject = ['Auth', '$translate'];

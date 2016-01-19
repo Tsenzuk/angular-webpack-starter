@@ -48,7 +48,7 @@ angular.module('app', [
       
       //if current level is less than required navigate to sign-in
       if(currentLevel < requiredLevel){
-        $state.go('sign-in');
+        $state.go('error',{errors:{'Authentication': 'You need another level of auth'}});
         return;
       }
       $urlRouter.sync();
